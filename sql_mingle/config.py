@@ -1,5 +1,8 @@
 import os
 from pydantic import BaseSettings
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Settings(BaseSettings):
@@ -15,4 +18,6 @@ class Settings(BaseSettings):
     bigquery_settings: dict = {
         'json_key_file_path': os.environ.get('BIGQUERY_JSON_KEY_FILE_PATH', None)
     }
-   
+
+
+settings = Settings()
